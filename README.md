@@ -1,4 +1,4 @@
-# 🎯 Redrob Intelligent Candidate Ranking System
+#  Redrob Intelligent Candidate Ranking System
 
 <div align="center">
 
@@ -16,7 +16,7 @@
 
 ---
 
-## 📌 Problem Statement
+##  Problem Statement
 
 Given 100,000 candidate profiles from the Redrob platform and a Senior AI Engineer job description, build an intelligent system that:
 
@@ -28,7 +28,7 @@ The dataset contains deliberate traps: keyword stuffers (Marketing Managers with
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 Two-stage hybrid ranker — rule-based baseline (V1) upgraded to XGBoost LambdaRank (V2):
 
@@ -81,7 +81,7 @@ Skills only appear at feature rank #5.
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 ```
 redrob-ranker/
@@ -100,13 +100,13 @@ redrob-ranker/
 
 ---
 
-## ⚡ Quickstart
+##  Quickstart
 
 ### 1. Clone & install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/redrob-ranker
-cd redrob-ranker
+git clone https://github.com/Suru2005-shri/redrob_Intelligent_Candidate_Ranking_System
+cd redrob_Intekkigent_Candidate_ranking_System
 pip install -r requirements.txt
 ```
 
@@ -136,7 +136,7 @@ streamlit run app.py
 
 ---
 
-## 🔬 Scoring Modules (V1 — Rule-Based)
+##  Scoring Modules (V1 — Rule-Based)
 
 | Module | Weight | What it captures |
 |--------|--------|-----------------|
@@ -149,7 +149,7 @@ streamlit run app.py
 
 ---
 
-## 🤖 Feature Engineering (V2 — 43 Features)
+##  Feature Engineering (V2 — 43 Features)
 
 <details>
 <summary>Click to expand all 43 features</summary>
@@ -213,7 +213,7 @@ streamlit run app.py
 
 ---
 
-## 📊 Results
+##  Results
 
 ### Accuracy Comparison
 
@@ -255,7 +255,7 @@ streamlit run app.py
 
 ---
 
-## 🧠 Key Design Decisions
+##  Key Design Decisions
 
 **1. Self-supervised training (no human labels)**  
 No ground-truth labels were provided. V1's rule-based scores serve as pseudo-labels (0–4 relevance tiers) for training V2. This is knowledge distillation: the hand-crafted rules teach the ML model, which then learns non-linear feature interactions the rules couldn't express.
@@ -271,7 +271,7 @@ The JD explicitly flags: *"People who have only worked at consulting firms in th
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology | Why |
 |-------|-----------|-----|
@@ -284,7 +284,7 @@ The JD explicitly flags: *"People who have only worked at consulting firms in th
 
 ---
 
-## 🔁 Reproduce in One Command
+##  Reproduce in One Command
 
 ```bash
 python rank_ml.py --candidates ./candidates.jsonl --out ./submission.csv
@@ -295,7 +295,7 @@ python rank_ml.py --candidates ./candidates.jsonl --out ./submission.csv
 
 ---
 
-## 📋 Submission Checklist
+##  Submission Checklist
 
 - [x] `submission.csv` — 100 candidates, validated, non-increasing scores, unique IDs + ranks
 - [x] `rank_ml.py` — complete ranker, reproduces CSV from `candidates.jsonl`
@@ -306,15 +306,15 @@ python rank_ml.py --candidates ./candidates.jsonl --out ./submission.csv
 
 ---
 
-## ⚖️ AI Tools Declaration
+##  AI Tools Declaration
 
 Claude (Anthropic) was used for architecture discussion, code review, and debugging. No candidate profile data was sent to any external API. All ranking logic, feature engineering, scoring weights, and XGBoost configuration are original work. The final ranker runs 100% locally with no network access during inference.
 
 ---
 
-## 📄 License
+##  License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License 
 
 ---
 
