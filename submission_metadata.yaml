@@ -1,0 +1,59 @@
+team_name: "shruti-redrob-ranker"
+
+primary_contact:
+  name: "Shruti"
+  email: "your-email@example.com"
+  phone: "+91-XXXXXXXXXX"
+
+team_members:
+  - name: "Shruti"
+    email: "your-email@example.com"
+    role: "ML Engineer / Team Lead"
+
+github_repo: "https://github.com/YOUR_USERNAME/redrob-ranker"
+
+sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+compute:
+  platform: "Standard Laptop CPU"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11"
+  os: "Ubuntu 22.04"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+ai_tools_used:
+  - "Claude"
+
+ai_usage_summary: |
+  Claude used for architecture discussion, code review, and debugging.
+  No candidate profile data was sent to any external API.
+  All ranking logic, feature engineering, and scoring weights are original work.
+  The final ranker runs 100% locally with no network access during ranking.
+
+methodology_summary: |
+  Multi-signal hybrid ranker with 5 scoring modules and a behavioral multiplier.
+  
+  The core insight: the JD explicitly warns about two failure modes — keyword stuffers 
+  (Marketing Managers with all the AI skills listed) and ghost candidates (perfect profiles 
+  who don't respond). The architecture directly addresses both.
+  
+  Profile quality = weighted sum of: Title+Career (28%), Skills (30%), Experience (20%),
+  Location+Logistics (10%), Education (5%). Behavioral engagement acts as a MULTIPLIER 
+  (0.70–1.15x) rather than an additive term — a great-profile ghost candidate gets penalized 
+  multiplicatively, not just additively.
+  
+  Honeypot detection catches profiles with impossible career math, expert skills at 0 months,
+  and other synthetic artifacts. Runtime: ~26s for 100K candidates, pure Python, no ML libs.
+
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
